@@ -31,6 +31,7 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function signature!
+<<<<<<< HEAD
     pub fn transformer(input: String) -> String {
         match Command{
 
@@ -39,6 +40,21 @@ mod my_module {
         let mut output: [i32] = vec![];
         for (string, command) in input.iter() {
 
+=======
+    pub fn transformer(input: Vec<(String,Command)>) -> Vec<String> {
+        // TODO: Complete the output declaration!
+        let mut output  = vec![];
+        for (string, command) in input.iter() {
+            let mut processed_string = string.clone();
+            match command {
+                Command::Uppercase => output.push(processed_string.to_uppercase()),
+                Command::Trim => output.push(processed_string.trim().to_string()),
+                Command::Append(n) => {
+                    let append_str: String = "bar".repeat(*n);  
+                    output.push(format!("{}{}", processed_string, append_str));
+                }
+             }
+>>>>>>> 96f8ac045ea3e06f1a81dd2a71427c0bb635b6fa
             // TODO: Complete the function body. You can do it!
         }
         output
